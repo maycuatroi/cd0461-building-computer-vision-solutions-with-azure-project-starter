@@ -1,13 +1,8 @@
 import uuid
 
 import cv2
-import numpy as np
-import requests
-import json
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
-from video_indexer import VideoIndexer
-
 from starter.sample_submission.src import config
 from starter.sample_submission.src.config import FaceService
 seed= 42
