@@ -16,3 +16,8 @@ class BlobStorage:
     ENDPOINT = f"https://{ACCOUNT_NAME}.blob.core.windows.net"
     TRAINING_DATA_URL = f"{ENDPOINT}/training-data"
     LOCATION = 'trial'
+
+
+class FaceService:
+    KEY='818b9b86f1f64477b47b3a0bbb54982c'
+    ENDPOINT='https://myfacerecognition231047.cognitiveservices.azure.com/'
