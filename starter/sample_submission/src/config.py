@@ -4,6 +4,7 @@
 class FormRecognize:
     ENDPOINT = 'https://myformrecogniton231047.cognitiveservices.azure.com/'
     KEY = 'f043ad5a2d9a44e7bf6e9b9865791ac0'
+    MODEL_ID='boarding-pass-extract'
 
 
 class BlobStorage:
