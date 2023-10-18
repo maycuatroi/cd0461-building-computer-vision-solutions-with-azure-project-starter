@@ -5,6 +5,8 @@
     - ![label-data](screenshots/label-data.png)
 - [x] [Optional] Perform the training also from the Python API and share the Python code snippet (either in text format
   or screenshot) showing model training screenshot with training images with labels
+  - ![training-api](screenshots/training-using-api.png)
+  - Source code: [[training-model.py](training-model.py)]
 - [x] Screenshots from the [https://customvision.ai](https://customvision.ai) website while performing the training
   process of the object detection model
 - [x] Screenshots from the [https://customvision.ai](https://customvision.ai) website while performing the validation

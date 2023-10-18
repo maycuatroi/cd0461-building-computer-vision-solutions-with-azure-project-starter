@@ -19,3 +19,10 @@ class BlobStorage:
 class FaceService:
     KEY = '818b9b86f1f64477b47b3a0bbb54982c'
     ENDPOINT = 'https://myfacerecognition231047.cognitiveservices.azure.com/'
+
+
+class CustomVisionConfig:
+    KEY = '366bffb028e54c1dbc7a285ebc4bba75'
+    ENDPOINT = 'https://mycustomvision231047.cognitiveservices.azure.com/'
+    ENDPOINT = 'https://southcentralus.api.cognitive.microsoft.com/'
+    PROJECT_ID = 'a965da96-e73e-4bf7-8eac-a32442589679'
