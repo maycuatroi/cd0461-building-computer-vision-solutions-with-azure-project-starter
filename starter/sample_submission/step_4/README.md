@@ -2,7 +2,7 @@
 
 - [x] Screenshots from the [https://customvision.ai](https://customvision.ai) website while performing image labeling in
   the object detection model training process
-    - ![label-data](starter/sample_submission/step_4/screenshots/label-data.png)
+    - ![label-data](screenshots/label-data.png)
 - [x] [Optional] Perform the training also from the Python API and share the Python code snippet (either in text format
   or screenshot) showing model training screenshot with training images with labels
 - [x] Screenshots from the [https://customvision.ai](https://customvision.ai) website while performing the training
