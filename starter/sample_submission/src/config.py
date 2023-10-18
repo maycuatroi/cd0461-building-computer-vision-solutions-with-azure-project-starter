@@ -22,7 +22,10 @@ class FaceService:
 
 
 class CustomVisionConfig:
-    KEY = '366bffb028e54c1dbc7a285ebc4bba75'
-    ENDPOINT = 'https://mycustomvision231047.cognitiveservices.azure.com/'
+    PREDICT_KEY = 'e475682707614191848db74b98fb7051'
+    TRAINING_RESOURCE_ID = '/subscriptions/21c53bc7-9f96-4753-9901-99cd641ad4e7/resourceGroups/aind-242944/providers/Microsoft.CognitiveServices/accounts/lighter-detection'
+    PREDICT_RESOURCE_ID = '/subscriptions/21c53bc7-9f96-4753-9901-99cd641ad4e7/resourceGroups/aind-242944/providers/Microsoft.CognitiveServices/accounts/lighter-detection-detector'
+    ITERATION_NAME = 'Iteration 1'
+    KEY = 'c45f95a54214464ea8027aa3e40a6150'
     ENDPOINT = 'https://southcentralus.api.cognitive.microsoft.com/'
-    PROJECT_ID = 'a965da96-e73e-4bf7-8eac-a32442589679'
+    PROJECT_ID = '567ba203-c82b-4adb-b7f7-3a7bf43b2099'
