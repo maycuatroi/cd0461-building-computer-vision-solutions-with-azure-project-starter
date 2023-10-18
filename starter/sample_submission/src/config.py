@@ -1,10 +1,8 @@
-
-
-
 class FormRecognize:
-    ENDPOINT = 'https://myformrecogniton231047.cognitiveservices.azure.com/'
-    KEY = 'f043ad5a2d9a44e7bf6e9b9865791ac0'
-    MODEL_ID='boarding-pass-extract'
+    ENDPOINT = 'https://myformrecognition1.cognitiveservices.azure.com/'
+    KEY = 'ae9f24c06fc14da398a0e0a4636ef370'
+    KEY2 = 'ca0d8f24d59a49eebd412ce5193baa7a'
+    MODEL_ID = 'boarding-pass-extract'
 
 
 class BlobStorage:
@@ -19,5 +17,5 @@ class BlobStorage:
 
 
 class FaceService:
-    KEY='818b9b86f1f64477b47b3a0bbb54982c'
-    ENDPOINT='https://myfacerecognition231047.cognitiveservices.azure.com/'
+    KEY = '818b9b86f1f64477b47b3a0bbb54982c'
+    ENDPOINT = 'https://myfacerecognition231047.cognitiveservices.azure.com/'
