@@ -9,6 +9,7 @@
   - Source code: [[training-model.py](training-model.py)]
 - [x] Screenshots from the [https://customvision.ai](https://customvision.ai) website while performing the training
   process of the object detection model
+  - ![training-process.png](screenshots%2Ftraining-process.png)
 - [x] Screenshots from the [https://customvision.ai](https://customvision.ai) website while performing the validation
   process in the object detection model training process
 - [x] Screenshot showing the precision and recall values of the custom object detection model
