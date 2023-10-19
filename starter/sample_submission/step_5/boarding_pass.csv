@@ -1,0 +1,7 @@
+Class,Ticket No.,Gate,Boarding Time,Seat,Flight No.,Passanger Name,To,Carrier,Baggage,From
+E,34236751,G1,10:00 AM PST,20A,234,Avkash Chauhan,Chicago,UA,NO,San Francisco
+B,34236748,G1,10:00 AM PST,1A,234,James Webb,Chicago,UA,YES,San Francisco
+E,34236750,G1,10:00 AM PST,25B,234,James Jackson,Chicago,UA,YES,San Francisco
+B,34236749,G1,10:00 AM PST,3D,234,Libby Herold,Chicago,UA,YES,San Francisco
+E,34236747,G1,10:00 AM PST,34B,234,Radha S Kumar,Chicago,UA,YES,San Francisco
+E,34236746,G1,10:00 AM PST,34A,234,Sameer Kumar,Chicago,UA,YES,San Francisco

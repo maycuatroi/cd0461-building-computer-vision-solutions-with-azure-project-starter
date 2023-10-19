@@ -17,25 +17,16 @@ document_analysis_client = DocumentAnalysisClient(
 )
 
 pdf_data = open(image_path, "rb").read()
-poller = document_analysis_client.begin_analyze_document(model_id, document=pdf_data)
+# poller = document_analysis_client.begin_analyze_document(model_id, document=pdf_data)
 
-boarding_pass = poller.result()
-document = boarding_pass.documents[0]
-fields = document.fields
-for field_name, field_value in fields.items():
-    print(f'{field_name}: {field_value.content}')
-    """
-    ==>
-    Carrier: UA
-    From: San Francisco
-    Gate: G1
-    Boarding Time: 10:00 AM PST
-    ticket numer: None
-    To: Chicago
-    Flight No: 234
-    Seat: 20A
-    Baggage: NO
-    Passenger Name: Avkash Chauhan
-    Class: E
-    Date: April 20, 2022
-    """
+poller = document_analysis_client.begin_analyze_document("prebuilt-document", pdf_data)
+result = poller.result()
+
+print("----Key-value pairs found in document----")
+for kv_pair in result.key_value_pairs:
+    if kv_pair.key and kv_pair.value:
+        print("Key '{}': Value: '{}'".format(kv_pair.key.content, kv_pair.value.content))
+    else:
+        print("Key '{}': Value:".format(kv_pair.key.content))
+
+print("----------------------------------------")

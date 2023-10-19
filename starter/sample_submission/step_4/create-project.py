@@ -1,5 +1,3 @@
-from time import sleep
-
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from msrest.authentication import ApiKeyCredentials
 

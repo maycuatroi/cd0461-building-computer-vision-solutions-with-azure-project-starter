@@ -1,5 +1,4 @@
 from azure.core.credentials import AzureKeyCredential
-from azure.ai.formrecognizer import FormRecognizerClient
 from azure.ai.formrecognizer import FormTrainingClient
 
 from starter.sample_submission.src import config

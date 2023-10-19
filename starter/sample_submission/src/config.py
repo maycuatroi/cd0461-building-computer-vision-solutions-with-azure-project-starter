@@ -1,24 +1,26 @@
 class FormRecognize:
-    ENDPOINT = 'https://myformrecognition1.cognitiveservices.azure.com/'
-    KEY = 'ae9f24c06fc14da398a0e0a4636ef370'
-    KEY2 = 'ca0d8f24d59a49eebd412ce5193baa7a'
+    ENDPOINT = 'https://myformrecognition111.cognitiveservices.azure.com/'
+    KEY = 'fcc4d0970bb44347849942711567bcd2'
+    KEY2 = 'd7a5a5025620413dadb93de36f996f9c'
     MODEL_ID = 'boarding-pass-extract'
 
 
 class BlobStorage:
-    CONTAINER_NAME = 'videos'
+    VIDEO_CONTAINER_NAME = 'videos'
     ACCOUNT_NAME = 'mystorage231047'
-    ACCOUNT_KEY = 'vQroVsyMoAMlfwD6QrKYXzPFXb91BnG484lUKFdMH4pMM9AMo1yGfzrNYg1mkrYaLlOvJaifoA8b+AStZnOi6A=='
+    ACCOUNT_KEY = 'HcyiVodGOHF1IWkCJmqeg5NkPW48pnAoyToYO19MiylQkcatWfJNOk5ToGjeZ7cpRwhvfo6CdeV3+AStZa2Uig=='
     SUBSCRIPTION_KEY = 'e144b1f9-a885-4518-b6ed-b2f3026e2a17'
     CONNECTION_STRING = f"DefaultEndpointsProtocol=https;AccountName={ACCOUNT_NAME};AccountKey={ACCOUNT_KEY};EndpointSuffix=core.windows.net"
     ENDPOINT = f"https://{ACCOUNT_NAME}.blob.core.windows.net"
-    TRAINING_DATA_URL = f"{ENDPOINT}/training-data"
+    FORM_TRAINING_CONTAINER = 'form-training'
+    TRAINING_DATA_URL = f"{ENDPOINT}/{FORM_TRAINING_CONTAINER}"
     LOCATION = 'trial'
 
 
 class FaceService:
-    KEY = '818b9b86f1f64477b47b3a0bbb54982c'
-    ENDPOINT = 'https://myfacerecognition231047.cognitiveservices.azure.com/'
+    KEY = '165143feffca4397af47abd105d509ae'
+    ENDPOINT = 'https://face-detection-1-abcdas.cognitiveservices.azure.com/'
+    PERSON_GROUP_ID = 'board-pass'
 
 
 class CustomVisionConfig:

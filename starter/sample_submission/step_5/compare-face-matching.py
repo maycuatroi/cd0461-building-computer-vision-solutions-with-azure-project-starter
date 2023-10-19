@@ -1,8 +1,9 @@
+import os
 import uuid
 
 import cv2
 from azure.cognitiveservices.vision.face import FaceClient
-from azure.cognitiveservices.vision.face.models import DetectedFace
+from azure.cognitiveservices.vision.face.models import DetectedFace, IdentifyResult
 from azure.storage.blob import BlobServiceClient
 from msrest.authentication import CognitiveServicesCredentials
 from starter.sample_submission.src import config
@@ -23,23 +24,40 @@ video = container_client.get_blob_client('a474067d305d441cb167e5211cc7d181avkash
 # get public url, downloadable url
 video_sas_url = f'{video.url}?sp=r&st=2023-10-19T17:15:56Z&se=2023-10-20T01:15:56Z&spr=https&sv=2022-11-02&sr=b&sig=bdRG%2BNC1RVg%2BlXsaPQI3m0jT%2BTBEXJcMAexkcYKm2QQ%3D'
 thumbnail_id = uuid.uuid4().hex
+id_image_path = "../material_preparation_step/digital_id/ca-dl-avkash.png"
+mat_id = cv2.imread(id_image_path)
 
 # get first frame of video
 cap = cv2.VideoCapture(video_sas_url)
 _, mat = cap.read()
 image_path = f'../material_preparation_step/thumbnails/{thumbnail_id}.jpg'
 cv2.imwrite(image_path, mat)
-results = face_client.face.detect_with_stream(open(image_path, mode="rb"), detection_model='detection_03')
+person_group = face_client.person_group.get(person_group_id=FaceService.PERSON_GROUP_ID)
 
-for detected_face in results:
-    detected_face: DetectedFace
-    bbox = detected_face.face_rectangle
-    # draw bounding box
-    xmin, ymin = int(bbox.left), int(bbox.top)
-    xmax, ymax = int((bbox.left + bbox.width)), int((bbox.top + bbox.height))
-    mat = cv2.rectangle(mat, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
-    mat = cv2.putText(mat, f'{detected_face.face_id}', (xmin, ymin - 10),
-                      cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36, 255, 12), 2)
-print(results)
-cv2.imwrite(image_path, mat)
-# file : starter/sample_submission/material_preparation_step/thumbnails/4f7c6e013bec4ec887bb95adfa9e88fc.jpg
+# Detect faces
+face_ids = []
+faces = face_client.face.detect_with_stream(open(image_path, mode="rb"))
+for face in faces:
+    face_ids.append(face.face_id)
+
+# Identify faces
+itentify_results = face_client.face.identify(face_ids, FaceService.PERSON_GROUP_ID)
+
+for identify_result, face in zip(itentify_results, faces):
+    identify_result: IdentifyResult
+    candidates = identify_result.candidates
+    for candidate in candidates:
+        confidence = candidate.confidence * 100
+        confidence = f'{confidence:.2f}%'
+        person_id = candidate.person_id
+        person = face_client.person_group_person.get(person_group_id=FaceService.PERSON_GROUP_ID, person_id=person_id)
+        print(f'Found Person {person.name} with confidence {confidence}')
+        # plot bounding box
+        rect = face.face_rectangle
+
+        cv2.rectangle(mat, (rect.left, rect.top), (rect.left + rect.width, rect.top + rect.height), (0, 255, 0), 2)
+        cv2.putText(mat, f'{person.name} {confidence}', (rect.left, rect.top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
+                    (36, 255, 12), 2)
+cv2.imwrite(f'../material_preparation_step/thumbnails/{thumbnail_id}-with-bounding-box.jpg', mat)
+cv2.imshow('image', mat)
+cv2.waitKey(0)

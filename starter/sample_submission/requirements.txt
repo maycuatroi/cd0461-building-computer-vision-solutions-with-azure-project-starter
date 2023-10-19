@@ -1,1 +1,6 @@
 azure-ai-formrecognizer
+pandas
+opencv-python
+azure-cognitiveservices-vision-face
+azure-storage-blob
+tqdm

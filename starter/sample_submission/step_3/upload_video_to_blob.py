@@ -16,7 +16,7 @@ unique_video_name = uuid.uuid4().hex + video_name
 
 
 blob_service_client = BlobServiceClient.from_connection_string(BlobStorage.CONNECTION_STRING)
-container_client = blob_service_client.get_container_client(BlobStorage.CONTAINER_NAME)
+container_client = blob_service_client.get_container_client(BlobStorage.VIDEO_CONTAINER_NAME)
 content_type = 'video/mp4'
 
 # Upload video to blob storage
